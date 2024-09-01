@@ -48,9 +48,9 @@ struct AppInfoView : View {
                         .disableAutocorrection(true)
                 }.padding(.horizontal , 10)
                 
-                Button(action: {
+                Button {
                     showingImagePicker = true
-                }, label: {
+                } label: {
                     ZStack {
                         Rectangle()
                             .foregroundColor(Color(#colorLiteral(red: 0.1494468771, green: 0.06504140199, blue: 0.2321173555, alpha: 1)))
@@ -70,14 +70,14 @@ struct AppInfoView : View {
                         }
                         
                     }.padding(.horizontal , 10)
-                })
+                }
                 
                 
             }
             .frame(height : 120)
             
             HStack(spacing: 40) {
-                Button(action: {
+                Button {
                     let new = App(context: viewContext)
                     new.firstName = firstName
                     new.lastName = lastName
@@ -93,9 +93,9 @@ struct AppInfoView : View {
                     
                     self.isShown.toggle()
                     
-                }, label: {
+                } label: {
                     Text("Done")
-                })
+                }
                 Button("Cancel") {
                     self.isShown = false
                 }
@@ -103,9 +103,8 @@ struct AppInfoView : View {
  
             
         }
-        .padding(.horizontal , 10)
-        //        .padding(.vertical , 10)
-        .frame(width: screenSize.width * 0.7, height: screenSize.height / 4)
+        .padding()
+        .frame(width: screenSize.width * 0.7)
         .background(
             LinearGradient(gradient: Gradient(colors: [ Color(#colorLiteral(red: 0.03334418845, green: 0.02625126296, blue: 0.05201637493, alpha: 1)) , Color(#colorLiteral(red: 0.1494468771, green: 0.06504140199, blue: 0.2321173555, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing)
         )
@@ -113,6 +112,6 @@ struct AppInfoView : View {
         .offset(y: isShown ? 0 : screenSize.height)
         .animation(.spring())
         .shadow(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), radius: 3, x: 0.0, y: 0.0)
-        
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }

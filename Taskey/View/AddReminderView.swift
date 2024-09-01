@@ -34,8 +34,7 @@ struct AddReminderView: View {
             }.padding(.horizontal , 10)
             
             HStack(spacing: 40) {
-                Button(action: {
-                    
+                Button {
                     let newReminder = Reminder(context : viewContext)
                     newReminder.title = text
                     newReminder.isCompleted = false
@@ -52,9 +51,9 @@ struct AddReminderView: View {
                     self.isShown.toggle()
                     
                     
-                }, label: {
+                } label: {
                     Text("Done")
-                })
+                }
                 Button("Cancel") {
                     self.isShown = false
                 }
@@ -70,6 +69,7 @@ struct AddReminderView: View {
         .offset(y: isShown ? 0 : screenSize.height)
         .animation(.spring())
         .shadow(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), radius: 3, x: 0.0, y: 0.0)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         
     }
 }
