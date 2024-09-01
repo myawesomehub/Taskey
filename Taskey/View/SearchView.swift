@@ -31,9 +31,9 @@ struct SearchView: View {
                     .foregroundColor(.black)
                     
                     if searched != "" {
-                        Button(action: {
+                        Button {
                             searched = ""
-                        }) {
+                        } label: {
                             Image(systemName: "xmark.circle.fill")
                                 .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                         }
@@ -50,9 +50,9 @@ struct SearchView: View {
             .animation(.easeInOut(duration: 0.3))
             
             if isSearching {
-                Button(action: {
+                Button {
                     hideKeyboard()
-                }) {
+                } label: {
                     Text("Cancel")
                 }
             }
